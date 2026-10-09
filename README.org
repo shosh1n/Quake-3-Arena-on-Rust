@@ -1,0 +1,105 @@
+* README
+
+This project is a port of the game Quake 3 Arena in rust. Its main intend is to teach me rust.
+** Credit to ioq3
+The code in this repository is inspired by the fork of ioq3. Their code is available on github.
+As a foundation I use the *ioq3 version* of Quake 3 Arena, it is compatible with the modern C/C++
+toolchain.
+
+Taken from their repository:
+#+BEGIN_QUOTE
+[...] source code is at https://github.com/ioquake/ioq3 If you aren't there, then this isn't ioquake3, it's someone else's project.
+#+END_QUOTE
+
+* License
+
+This project is a Rust reimplementation and port of technology from the Quake III Arena / ioquake3 engine, with the long-term goal of targeting WebAssembly and WebGL.
+
+** Engine source code
+
+Quake III Arena was released by id Software under the GNU General Public License. Portions of this project are based on, translated from, or derived from the Quake III Arena and/or ioquake3 source code.
+
+Accordingly, this project's engine source code is distributed under the *GNU General Public License, version 2 or later (GPL-2.0-or-later)*.
+
+See [[file:LICENSE][LICENSE]] for the full license text.
+
+Where code has been translated or substantially derived from upstream Quake III Arena or ioquake3 source, the relevant copyright and attribution notices are retained.
+
+Upstream projects:
+
+- Quake III Arena GPL source release — id Software
+- ioquake3 — ioquake3 project
+
+** Game assets
+
+The GPL release of the Quake III Arena engine does *not* include the original Quake III Arena game data.
+
+Original Quake III Arena maps, textures, models, sounds, music, artwork, and other game assets remain subject to their respective copyright and license terms and are *not covered by this project's GPL license*.
+
+Unless explicitly stated otherwise, this repository does not distribute the retail Quake III Arena game assets.
+
+Development may support data supplied separately by the user, including compatible PK3 files. Any demo data or third-party asset packs used by this project remain subject to their own licenses and will be documented separately.
+
+** Third-party software
+
+This project may contain or depend on third-party software under licenses different from the GPL. Relevant copyright notices and license information are retained in the repository where required.
+
+** Trademarks
+
+Quake, Quake III Arena, id Software, and related names and marks belong to their respective owners.
+
+This project is an independent open-source project and is not affiliated with or endorsed by id Software or ZeniMax Media.
+** Outline to remind me and getting started
+The C/CC+ source repository has the following structure:
+#+begin_src bash
+├── asm
+├── botlib
+├── cgame
+├── client
+├── game
+├── null
+├── q3_ui
+├── qcommon
+├── renderercommon
+├── renderergl1
+├── renderergl2
+├── sdl
+├── server
+├── sys
+├── thirdparty
+├── tools
+├── ui
+└── web
+#+end_src
+
+=qcommon= is good starting point for developing. It contains necessary IO-methods for game content.
+Further meticulous separation is advised in rust as I would not coding on network or Huffman coding
+for network gaming to begin with.
+#+begin_src bash
+  ├── cmd.c
+  ├── cm_load.c
+  ├── cm_local.h
+  ├── cm_patch.c
+  ├── cm_patch.h
+  ├── cm_polylib.c
+  ├── cm_polylib.h
+  ├── cm_public.h
+  ├── cm_test.c
+  ├── cm_trace.c
+  ├── common.c
+  ├── cvar.c
+  ├── files.c
+  ├── huffman.c
+  ├── ioapi.c
+  ├── ioapi.h
+  ├── json.h
+  ├── md4.c
+  ├── md5.c
+  ├── msg.c
+  ├── net_chan.c
+  ├── net_ip.c
+  ...
+#+end_src
+# Local Variables:
+# jinx-languages: "en_US"
+# End:
